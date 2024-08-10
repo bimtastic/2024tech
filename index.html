@@ -2,33 +2,17 @@
 <html>
 <head>
   <title>AR.js and A-Frame Example</title>
-  <!-- Include A-Frame library -->
   <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-  <!-- Include AR.js library -->
   <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
 </head>
-
 <body style="margin: 0; overflow: hidden;">
-  <!-- Add a slider for transparency control -->
   <input id="transparencySlider" type="range" min="0" max="1" step="0.01" value="1">
-  
-  <!-- Define the A-Frame scene -->
-  <a-scene embedded arjs='sourceType: webcam; video: { facingMode: environment, width: 1280, height: 720 };'
-           look-controls='enabled=true' user-hash>
-    
-    <!-- Add a debug component to check if model has loaded -->
-    <a-debug name="Model Loaded" visible="true"></a-debug>
-    
-    <!-- Define the Hiro marker -->
-    <a-marker preset='hiro' id="marker">
-      <!-- Load the 3D model from the same directory using a relative path -->
-      <a-entity gltf-model="Cliff.glb"
-                scale="0.1 0.1 0.1" position="0 0 -5" rotation="0 0 0">
-      </a-entity>
+  <a-scene embedded arjs='sourceType: webcam; video: { facingMode: environment, width: 1280, height: 720 };'>
+    <a-marker preset="hiro">
+      <a-entity id="model1" gltf-model="url(Cliff.glb)" 
+                scale="0.1 0.1 0.1" position="0 0 0" rotation="0 0 0" material="color: #0066ff; opacity: 1; shader: standard;"></a-entity>
     </a-marker>
-    
-    <!-- Add a camera entity -->
-    <a-entity id="camera" camera look-controls="enabled=true"></a-entity>
+    <a-entity camera></a-entity>
   </a-scene>
 </body>
 </html>
