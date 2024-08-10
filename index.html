@@ -13,7 +13,8 @@
   <input id="transparencySlider" type="range" min="0" max="1" step="0.01" value="1">
   
   <!-- Define the A-Frame scene -->
-  <a-scene embedded arjs='sourceType: webcam; video: { facingMode: environment, width: 1280, height: 720 };'>
+  <a-scene embedded arjs='sourceType: webcam; video: { facingMode: environment, width: 1280, height: 720 };'
+           look-controls='enabled=true' user-hash>
     
     <!-- Add a debug component to check if model has loaded -->
     <a-debug name="Model Loaded" visible="true"></a-debug>
@@ -22,12 +23,12 @@
     <a-marker preset='hiro' id="marker">
       <!-- Load the 3D model from the same directory using a relative path -->
       <a-entity gltf-model="Cliff.glb"
-                scale="0.1 0.1 0.1" position="0 0 -1" rotation="0 0 0">
+                scale="0.1 0.1 0.1" position="0 0 -5" rotation="0 0 0">
       </a-entity>
     </a-marker>
     
     <!-- Add a camera entity -->
-    <a-entity camera></a-entity>
+    <a-entity id="camera" camera look-controls="enabled=true"></a-entity>
   </a-scene>
 </body>
 </html>
