@@ -15,12 +15,16 @@
   <!-- Define the A-Frame scene -->
   <a-scene embedded arjs='sourceType: webcam; video: { facingMode: environment, width: 1280, height: 720 };'>
     
-    <!-- Define a marker camera -->
-    <a-marker-camera type='pattern' url="pclhiro.patt" id="markerCamera">
-      <!-- Define the model to be displayed when the marker is detected -->
-      <a-entity id="model1" gltf-model="url(Cliff.glb)" 
-                scale="0.1 0.1 0.1" position="0 0 0" rotation="0 0 0" shader: standard;"></a-entity>
-    </a-marker-camera>
+    <!-- Add a debug component to check if model has loaded -->
+    <a-debug name="Model Loaded" visible="true"></a-debug>
+    
+    <!-- Define the Hiro marker -->
+    <a-marker preset='hiro' id="marker">
+      <!-- Load the 3D model from the same directory using a relative path -->
+      <a-entity gltf-model="Cliff.glb"
+                scale="0.1 0.1 0.1" position="0 0 -1" rotation="0 0 0">
+      </a-entity>
+    </a-marker>
     
     <!-- Add a camera entity -->
     <a-entity camera></a-entity>
