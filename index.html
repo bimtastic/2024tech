@@ -8,7 +8,7 @@
 <body style="margin: 0; overflow: hidden;">
   <input id="transparencySlider" type="range" min="0" max="1" step="0.01" value="1">
   <a-scene embedded arjs='sourceType: webcam; video: { facingMode: environment, width: 1280, height: 720 };'>
-    <a-marker preset="hiro">
+    <a-marker type="pattern" url="pclhiro.patt">
       <a-entity id="model1" gltf-model="url(Cliff.glb)" 
                 scale="0.1 0.1 0.1" position="0 0 0" rotation="0 0 0" shader: standard;"></a-entity>
     </a-marker>
